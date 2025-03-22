@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jw133\\Documents\\GitHub\\cykor_callstack_2025350038\\callstack_2025350038_\uBC15\uC900\uC6B0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0595544F-8290-41F8-B60C-3B1BAC1DE022}|callstack_2025350038_\uBC15\uC900\uC6B0.vcxproj|C:\\Users\\jw133\\Documents\\GitHub\\cykor_callstack_2025350038\\callstack_2025350038_\uBC15\uC900\uC6B0\\callstack_2025350038_\uBC15\uC900\uC6B0.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0595544F-8290-41F8-B60C-3B1BAC1DE022}|callstack_2025350038_\uBC15\uC900\uC6B0.vcxproj|solutionrelative:callstack_2025350038_\uBC15\uC900\uC6B0.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jw133\\\uAC1C\uC778 \uC790\uB8CC\\\uC218\uC5C5 \uC790\uB8CC\\Cykor_week1\\base.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "base.c",
+              "DocumentMoniker": "C:\\Users\\jw133\\\uAC1C\uC778 \uC790\uB8CC\\\uC218\uC5C5 \uC790\uB8CC\\Cykor_week1\\base.c",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\\uAC1C\uC778 \uC790\uB8CC\\\uC218\uC5C5 \uC790\uB8CC\\Cykor_week1\\base.c",
+              "ToolTip": "C:\\Users\\jw133\\\uAC1C\uC778 \uC790\uB8CC\\\uC218\uC5C5 \uC790\uB8CC\\Cykor_week1\\base.c",
+              "RelativeToolTip": "..\\..\\..\\..\\\uAC1C\uC778 \uC790\uB8CC\\\uC218\uC5C5 \uC790\uB8CC\\Cykor_week1\\base.c",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAkwHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-03-22T00:46:35.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "callstack_2025350038_\uBC15\uC900\uC6B0.c",
+              "DocumentMoniker": "C:\\Users\\jw133\\Documents\\GitHub\\cykor_callstack_2025350038\\callstack_2025350038_\uBC15\uC900\uC6B0\\callstack_2025350038_\uBC15\uC900\uC6B0.c",
+              "RelativeDocumentMoniker": "callstack_2025350038_\uBC15\uC900\uC6B0.c",
+              "ToolTip": "C:\\Users\\jw133\\Documents\\GitHub\\cykor_callstack_2025350038\\callstack_2025350038_\uBC15\uC900\uC6B0\\callstack_2025350038_\uBC15\uC900\uC6B0.c",
+              "RelativeToolTip": "callstack_2025350038_\uBC15\uC900\uC6B0.c",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-03-22T00:46:19.853Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
