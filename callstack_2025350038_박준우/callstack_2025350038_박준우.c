@@ -24,7 +24,7 @@
 #define STACK_SIZE 50 // 최대 스택 크기
 
 int     call_stack[STACK_SIZE];         // Call Stack을 저장하는 배열
-char    stack_info[STACK_SIZE][20];     // Call Stack 요소에 대한 설명을 저장하는 배열
+char*   stack_info[STACK_SIZE];     // Call Stack 요소에 대한 설명을 저장하는 배열
 
 /*  SP (Stack Pointer), FP (Frame Pointer)
 
@@ -40,6 +40,13 @@ int FP = -1;
 void func1(int arg1, int arg2, int arg3);
 void func2(int arg1, int arg2);
 void func3(int arg1);
+
+void push(int value, char* info)
+{
+    SP++;
+    call_stack[SP] = value;
+    stack_info[SP] = info;
+}
 
 /*
     현재 call_stack 전체를 출력합니다.
