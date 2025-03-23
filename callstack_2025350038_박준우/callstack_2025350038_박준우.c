@@ -111,13 +111,20 @@ void func1(int arg1, int arg2, int arg3)
     FP = SP;
     SP += FUNC1_LOCAL_VAR_COUNT;
 
-    push_at(0, var_1, "Local Var \'var_1\' of Func \'Func1\'");
+    push_at(0, var_1, "Local Var \'var_1\' of Func \'func1\'");
 
     print_stack();
     /**************************************/
+
     func2(11, 13);
     // func2의 스택 프레임 제거 (함수 에필로그 + pop)
+#define FUNC2_PARAM_COUNT 2
+    SP = FP;
+    FP = pop();
+    SP--; // Return Address
+    SP -= FUNC2_PARAM_COUNT;
     print_stack();
+    /**************************************/
 }
 
 
@@ -126,11 +133,29 @@ void func2(int arg1, int arg2)
     int var_2 = 200;
 
     // func2의 스택 프레임 형성 (함수 프롤로그 + push)
-    /**************************************/
+#define FUNC2_LOCAL_VAR_COUNT 1
+    push(arg1, "Param \'arg1\' of Func \'func2\'");
+    push(arg2, "Param \'arg2\' of Func \'func2\'");
+
+    push(-1, "Return Address");
+    push(FP, "SFP of Func \'func1\'");
+    FP = SP;
+    SP += FUNC2_LOCAL_VAR_COUNT;
+
+    push_at(0, var_2, "Local Var \'var_2\' of Func \'func2\'");
+
     print_stack();
+    /**************************************/
+
     func3(77);
     // func3의 스택 프레임 제거 (함수 에필로그 + pop)
+#define FUNC3_PARAM_COUNT 1
+    SP = FP;
+    FP = pop();
+    SP--; // Return Address
+    SP -= FUNC3_PARAM_COUNT;
     print_stack();
+    /**************************************/
 }
 
 
@@ -140,8 +165,19 @@ void func3(int arg1)
     int var_4 = 400;
 
     // func3의 스택 프레임 형성 (함수 프롤로그 + push)
-    /**************************************/
+#define FUNC3_LOCAL_VAR_COUNT 2
+    push(arg1, "Param \'arg1\' of Func \'func3\'");
+
+    push(-1, "Return Address");
+    push(FP, "SFP of Func \'func2\'");
+    FP = SP;
+    SP += FUNC3_LOCAL_VAR_COUNT;
+
+    push_at(0, var_3, "Local Var \'var_3\' of Func \'func3\'");
+    push_at(-1, var_4, "Local Var \'var_4\' of Func \'func3\'");
+
     print_stack();
+    /**************************************/
 }
 
 
@@ -159,7 +195,8 @@ int main()
     FP = pop();
     SP--; // Return Address
     SP -= FUNC1_PARAM_COUNT;
-    /**************************************/
     print_stack();
+    /**************************************/
+
     return 0;
 }
