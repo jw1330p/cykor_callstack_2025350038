@@ -48,6 +48,20 @@ void push(int value, char* info)
     stack_info[SP] = info;
 }
 
+void push_at(int idx_from_sp, int value, char* info)
+// 함수 프롤로그에서 지역변수를 저장할 때에만 사용한다.
+{
+    int index = SP + idx_from_sp;
+    call_stack[index] = value;
+    stack_info[index] = info;
+}
+
+int pop()
+{
+    SP--;
+    return call_stack[SP + 1];
+}
+
 /*
     현재 call_stack 전체를 출력합니다.
     해당 함수의 출력 결과들을 바탕으로 구현 완성도를 평가할 예정입니다.
@@ -56,6 +70,7 @@ void print_stack()
 {
     if (SP == -1)
     {
+        // 참고: main 함수의 stack frame을 구현했으므로 call stack이 비는 경우는 없음.
         printf("Stack is empty.\n");
         return;
     }
@@ -86,7 +101,20 @@ void func1(int arg1, int arg2, int arg3)
     int var_1 = 100;
 
     // func1의 스택 프레임 형성 (함수 프롤로그 + push)
+#define FUNC1_LOCAL_VAR_COUNT 1 // 컴파일 과정에서 계산될 지역변수의 수
+    push(arg1, "Param \'arg1\' of Func \'func1\'");
+    push(arg2, "Param \'arg2\' of Func \'func1\'");
+    push(arg3, "Param \'arg3\' of Func \'func1\'");
+
+    push(-1, "Return Address");
+    push(FP, "SFP of Func \'main\'");
+    FP = SP;
+    SP += FUNC1_LOCAL_VAR_COUNT;
+
+    push_at(0, var_1, "Local Var \'var_1\' of Func \'Func1\'");
+
     print_stack();
+    /**************************************/
     func2(11, 13);
     // func2의 스택 프레임 제거 (함수 에필로그 + pop)
     print_stack();
@@ -98,6 +126,7 @@ void func2(int arg1, int arg2)
     int var_2 = 200;
 
     // func2의 스택 프레임 형성 (함수 프롤로그 + push)
+    /**************************************/
     print_stack();
     func3(77);
     // func3의 스택 프레임 제거 (함수 에필로그 + pop)
@@ -111,6 +140,7 @@ void func3(int arg1)
     int var_4 = 400;
 
     // func3의 스택 프레임 형성 (함수 프롤로그 + push)
+    /**************************************/
     print_stack();
 }
 
@@ -118,8 +148,18 @@ void func3(int arg1)
 //main 함수에 관련된 stack frame은 구현하지 않아도 됩니다.
 int main()
 {
+    // FP == -1(기본값)일 때 출력이 안 되는 오류가 있어서 main 함수의 stack frame을 구현함.
+    push(-1, "Stack Frame of Func \'main\'");
+    FP = 0;
+
     func1(1, 2, 3);
     // func1의 스택 프레임 제거 (함수 에필로그 + pop)
+#define FUNC1_PARAM_COUNT 3
+    SP = FP;
+    FP = pop();
+    SP--; // Return Address
+    SP -= FUNC1_PARAM_COUNT;
+    /**************************************/
     print_stack();
     return 0;
 }
